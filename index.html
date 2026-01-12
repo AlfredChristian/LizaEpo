@@ -12,43 +12,224 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- ===== TOP BAR ===== -->
-    <div class="top-bar">
-        <p>Les soldes de saison et les nouveaux arrivages sont arrivés, jetez-y un œil maintenant !</p>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="message">Les soldes de saison et les nouveaux arrivages sont arrivés, jetez-y un œil maintenant !</div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
     </div>
 
-    <!-- ===== HEADER ===== -->
-    <header class="header">
-        <div class="logo">
-            <img src="assets/images/logo.png" alt="LizaMarket">
-        </div>
-
-        <nav class="nav">
-            <a href="#">Accueil</a>
-            <a href="#">Boutique</a>
-            <a href="#">Meubles</a>
-            <a href="#">Vêtements tendances</a>
-            <a href="#">Contact</a>
-        </nav>
-
-        <div class="header-icons">
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
-            <i class="fa-regular fa-user"></i>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <svg width="150" height="60" viewBox="0 0 150 60">
+                    <text x="10" y="40" font-family="Arial" font-size="32" font-weight="bold" fill="#e31e24">liza</text>
+                    <text x="10" y="55" font-family="Arial" font-size="12" fill="#00b159">market</text>
+                    <path d="M 120 20 Q 140 30 120 40" stroke="#00b159" stroke-width="4" fill="none"/>
+                </svg>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#boutique">Boutique</a></li>
+                    <li><a href="#meubles">Meubles</a></li>
+                    <li><a href="#vetements">Vêtements tendances</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- ===== MAIN ===== -->
-    <main>
-        <!-- Hero, sections produits → autres membres -->
-    </main>
+    <!-- Search Section -->
+    <div class="search-section">
+        <button class="menu-btn"><i class="fas fa-bars"></i></button>
+        <select class="categories-dropdown">
+            <option>Catégories</option>
+            <option>Vêtements</option>
+            <option>Fruits et légumes</option>
+            <option>Produits artisanaux</option>
+        </select>
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher un produit">
+            <button>Rechercher</button>
+        </div>
+        <div class="header-icons">
+            <button class="icon-btn"><i class="far fa-heart"></i></button>
+            <button class="icon-btn"><i class="fas fa-shopping-cart"></i></button>
+            <button class="icon-btn"><i class="far fa-user"></i></button>
+        </div>
+    </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <p>© 2026 LizaMarket — Tous droits réservés</p>
+    <!-- Hero Slider -->
+    <div class="hero-slider">
+        <div class="slider-container" id="sliderContainer">
+            <div class="slide">
+                <div style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 500%22><rect fill=%22%234a9d5f%22 width=%22800%22 height=%22500%22/><circle cx=%22200%22 cy=%22250%22 r=%2280%22 fill=%22%23ffd700%22/></svg>'); background-size: cover; width: 100%; height: 100%;"></div>
+                <div class="slide-content">
+                    <h1>Ici vous êtes<br>chez vous!</h1>
+                    <div class="location-badge">
+                        <i class="fas fa-map-marker-alt"></i> Avenue Kwamé N'Krumah • Ouagadougou
+                    </div>
+                    <p style="margin-top: 20px;">Le choix de la qualité.</p>
+                    <p>Lundi au samedi : 7h30 - 21h00 • Dimanche : 15h00 - 20h00</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), #d4a017; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center; color: white;">
+                        <h2 style="font-size: 48px;">Produits Frais</h2>
+                        <p style="font-size: 24px;">Qualité garantie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button onclick="prevSlide()">‹</button>
+            <button onclick="nextSlide()">›</button>
+        </div>
+    </div>
+
+    <!-- Products Section: Sur Commande -->
+    <div class="products-section">
+        <div class="section-header">
+            <span class="section-icon">⭕</span>
+            <h2 class="section-title">Sur Commande</h2>
+        </div>
+        <div class="products-grid" id="commandeProducts"></div>
+
+        <!-- Fruits et Légumes -->
+        <div class="section-header">
+            <span class="section-icon">⭕</span>
+            <h2 class="section-title">Fruits et Légumes</h2>
+        </div>
+        <div class="products-grid" id="fruitsProducts"></div>
+
+        <!-- Banner -->
+        <div class="promo-banner">
+            <svg width="100%" height="200" viewBox="0 0 1000 200">
+                <defs>
+                    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#a4d96c;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#e8f48c;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="1000" height="200" fill="url(#bgGrad)"/>
+                <text x="500" y="80" font-family="Arial" font-size="60" font-weight="bold" fill="#e31e24" text-anchor="middle">liza</text>
+                <text x="500" y="120" font-family="Arial" font-size="30" fill="#00b159" text-anchor="middle">market</text>
+                <path d="M 750 60 Q 800 80 750 100" stroke="#00b159" stroke-width="6" fill="none"/>
+            </svg>
+        </div>
+
+        <!-- Produits Artisanaux -->
+        <div class="section-header">
+            <span class="section-icon">⭕</span>
+            <h2 class="section-title">Produits Artisanaux et Traditionnels</h2>
+        </div>
+        <div class="products-grid" id="artisanProducts"></div>
+    </div>
+
+    <!-- Sale Section -->
+    <div class="sale-section">
+        <h2 class="sale-title">En Solde</h2>
+        <div class="sale-grid">
+            <div class="sale-item">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23ff69b4' width='100' height='100' rx='10'/></svg>" alt="Produit">
+            </div>
+            <div class="sale-item">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%234169e1' width='100' height='100' rx='10'/></svg>" alt="Produit">
+            </div>
+            <div class="sale-item">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23ffd700' width='100' height='100' rx='10'/></svg>" alt="Produit">
+            </div>
+            <div class="sale-item">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%234169e1' width='100' height='100' rx='10'/></svg>" alt="Produit">
+            </div>
+            <div class="sale-item">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23ff4500' width='100' height='100' rx='10'/></svg>" alt="Produit">
+            </div>
+            <div class="sale-item">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23ff1493' width='100' height='100' rx='10'/></svg>" alt="Produit">
+            </div>
+            <div class="sale-item">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23ffd700' width='100' height='100' rx='10'/></svg>" alt="Produit">
+            </div>
+            <div class="sale-item">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23fff' width='100' height='100' rx='10'/></svg>" alt="Produit">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Liens Utiles</h3>
+                <ul>
+                    <li><a href="#">Politique de remboursement</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                    <li><a href="#">Historique des achats</a></li>
+                    <li><a href="#">Mettre à jour votre profil</a></li>
+                    <li><a href="#">Supprimer votre profil</a></li>
+                    <li><a href="#">Abonnements</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Rejoignez nous sur</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Whatsapp</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Nos Partenaires</h3>
+                <ul>
+                    <li><a href="#">Partenaire 1</a></li>
+                    <li><a href="#">Partenaire 2</a></li>
+                    <li><a href="#">Partenaire 3</a></li>
+                    <li><a href="#">Partenaire 4</a></li>
+                    <li><a href="#">Partenaire 5</a></li>
+                    <li><a href="#">Partenaire 6</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Détails du Contact</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Whatsapp</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Magasins Hors Ligne</h3>
+                <p style="font-size: 13px;">Adresse : 24, rue 15.66, Zone d'ollo, Avenue Kwamé N'Krumah, Ouagadougou, +22670895425, +22672 33 50 54</p>
+                <p style="font-size: 13px; margin-top: 10px;">E-mail: cavitasrfilliza@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>Devise</h3>
+                <ul>
+                    <li>FCFA</li>
+                    <li>La Convivialité</li>
+                    <li>La Civilité</li>
+                    <li>L'Hygiène</li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <div class="footer-bottom">
+        <p>© 2023 Liza Market le choix de la qualité.</p>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
 </body>
 </html>
